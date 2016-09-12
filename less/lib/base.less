@@ -1,0 +1,36 @@
+html, body {
+  font-size: 62.5%;
+}
+
+// responsivity
+body, html {
+  font-size: 8px;
+  @media (min-width: @screen-md-min) {
+    font-size: 9px;
+  }
+  @media (min-width: @screen-lg-min) {
+    font-size: 10px;
+  }
+}
+
+////links
+a {
+  transition: 0.3s;
+  &, &:active, &:hover, &:link {
+    text-decoration: none;
+    color: white;
+  }
+  &:hover {
+    //color: white;
+  }
+}
+
+//animated to visible
+.animated {
+  opacity: 1 !important;
+}
+
+//svg
+.svg path, .svg rect {
+  stroke-width: 0;
+}

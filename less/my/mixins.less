@@ -1,0 +1,176 @@
+.transitions (@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+.animations(@anim) {
+  -webkit-animation: @anim;
+  -moz-animation: @anim;
+  -o-animation: @anim;
+  -ms-animation: @anim;
+  animation: @anim;
+}
+
+.animations(@anim, @important) {
+  -webkit-animation: @anim !important;
+  -moz-animation: @anim !important;
+  -o-animation: @anim !important;
+  -ms-animation: @anim !important;
+  animation: @anim !important;
+}
+
+.transforms(@trans) {
+  -webkit-transform: @trans; /* Safari and Chrome */
+  -moz-transform: @trans; /* Firefox */
+  -ms-transform: @trans; /* IE 9 */
+  -o-transform: @trans; /* Opera */
+  transform: @trans;
+}
+
+.box-shadow(@shadow) {
+  -webkit-box-shadow:@shadow ;
+  -moz-box-shadow:  @shadow ;
+  box-shadow:    @shadow   ;
+}
+
+
+.box-shadow(@shadow, @imp) {
+  -webkit-box-shadow:@shadow  !important;
+  -moz-box-shadow:  @shadow !important;
+  box-shadow:    @shadow  !important ;
+}
+
+
+
+.make-section() {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 5rem;
+  padding-bottom: 8rem;
+
+  .perex {
+    line-height: 2.3rem;
+    font-size: 1.4rem;
+    text-align: center;
+    color: @lightgrey;
+  }
+
+}
+
+
+
+.make-top() {
+  padding-top: @menu-mobile-height;
+  @media (min-width: @screen-sm-max) {
+    padding-top: @menu-desktop-height;
+  }
+}
+
+
+
+.make-section-bg(@bg) {
+  .make-section();
+  background: @bg;
+  position: relative;
+  &:before  {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .6;
+    background: black;
+  }
+}
+
+.make-section-bg-color(@bg) {
+  .make-section();
+  background-color: @bg;
+
+
+}
+
+.make-button {
+  font-size: 2rem;
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 1.2rem 2rem;
+  font-weight: 300;
+
+  .transitions(.3s);
+
+}
+
+.pulse {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.pulse:hover,
+.pulse:focus,
+.pulse:active {
+  -webkit-animation-name: hvr-pulse;
+  animation-name: hvr-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes pulse {
+  25% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  75% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+}
+
+
+.placeholder(@color, @size) {
+  ::-webkit-input-placeholder {
+    color: @color;
+    font-size: @size;
+    //    text-indent: .5rem ;
+  }
+
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: @color;
+    font-size: @size;
+  }
+
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: @color;
+    font-size: @size;
+  }
+
+  :-ms-input-placeholder {
+    color: @color;
+    font-size: @size;
+  }
+}
